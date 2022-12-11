@@ -1,15 +1,15 @@
-class Daily {
+class DailyModel {
   //dynamic id;
   String title;
   String content;
 
-  Daily({
+  DailyModel({
     required this.title,
     required this.content,
   });
 
-  factory Daily.fromJson(Map<String, dynamic> Json) {
-    return Daily(
+  factory DailyModel.fromJson(Map<String, dynamic> Json) {
+    return DailyModel(
       title: Json['title'],
       content: Json['content'],
     );

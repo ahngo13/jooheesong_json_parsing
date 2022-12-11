@@ -1,26 +1,17 @@
 import 'package:jooheesong/daily.dart';
+import 'package:jooheesong/date.dart';
 
-class DateList {
-  //dynamic id;
-  String date;
-  List<dynamic> dailyList;
+class DateListModel {
+  final List<DateModel> list;
 
-  DateList({
-    required this.date,
-    required this.dailyList,
+  DateListModel({
+    required this.list,
   });
 
-  factory DateList.fromJson(Map<String, dynamic> Json) {
-    return DateList(
-      date: Json['date'],
-      dailyList: Json['dailyList'],
-    );
+  factory DateListModel.fromJson(List<dynamic> parsedJson) {
+    List<DateModel> list = <DateModel>[];
+    list = parsedJson.map((e) => DateModel.fromJson(e)).toList();
+    return new DateListModel(list: list);
   }
 
-  Map<String, dynamic> toJson() =>
-      {
-        //'id': id,
-        'date' : date,
-        'dailyList': dailyList,
-      };
 }
